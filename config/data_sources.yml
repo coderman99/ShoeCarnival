@@ -1,0 +1,43 @@
+# Data source configuration for sales and margin projections
+# Values may include environment variable substitutions like ${ZOOM_USERS_URL}.
+# Set the env vars before running the fetch script, or provide HTTP URLs directly.
+
+zoom_users:
+  description: Zoom usage trends to benchmark collaboration adoption.
+  output: data/zoom_users.csv
+  source:
+    type: http
+    url: "${ZOOM_USERS_URL}"
+    params: {}
+    headers: {}
+    fallback_local: data/zoom_users.csv
+
+shoe_station_locations:
+  description: Store-level Shoe Station location details.
+  output: data/shoe_station_locations.csv
+  source:
+    type: http
+    url: "${SHOE_STATION_LOCATIONS_URL}"
+    params: {}
+    headers: {}
+    fallback_local: data/shoe_station_locations.csv
+
+shoe_carnival_locations:
+  description: Store-level Shoe Carnival location details.
+  output: data/shoe_carnival_locations.csv
+  source:
+    type: http
+    url: "${SHOE_CARNIVAL_LOCATIONS_URL}"
+    params: {}
+    headers: {}
+    fallback_local: data/shoe_carnival_locations.csv
+
+high_end_shoe_sales:
+  description: Annual revenue for high-end shoe categories needed for demand projections.
+  output: data/high_end_shoe_sales.csv
+  source:
+    type: http
+    url: "${HIGH_END_SHOE_SALES_URL}"
+    params: {}
+    headers: {}
+    fallback_local: data/high_end_shoe_sales.csv
